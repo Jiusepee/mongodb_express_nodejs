@@ -4,7 +4,7 @@ const Course = require('../models/Course');
 // @route SET /api/courses
 
 const createCourse = async (req, res) => {
-    if(!req.body.name || !req.body.author) res.status(404).body("Not found");
+    if(!req.body.name || !req.body.author) res.status(404).send("Not found");
 
 
     const course = await Course.create({
