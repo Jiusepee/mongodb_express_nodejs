@@ -1,7 +1,7 @@
 const Course = require('../models/Course');
 
-// @desc Get Transactions
-// @route GET /api/transactions
+// @desc SET Course INSERT INTO DB
+// @route SET /api/courses
 
 const createCourse = async (req, res) => {
     if(!req.body.name || !req.body.author) res.status(404).body("Not found");

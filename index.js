@@ -11,6 +11,7 @@ const {
     //kiti metodai
 } = require('./controllers/coursesController');
 
+
 app.post('/api/course', createCourse);
 
 
