@@ -16,8 +16,41 @@ const createCourse = async (req, res) => {
 
 }
 
+// ______________________________________
+//@desc GET Courses From DB
+//@route GET /api/courses
+const getCourses = async (req, res) => {
+    const courses = await Course.find();
+    res.status(200).json(courses)
+};
+//________________________________________________
+
+//@desc PUT Courses
+//@route PUT /api/courses/:id
+const updateCourse = async (req, res) => {
+    const course = await Course.findByIdAndUpdate(req.params.id, {
+        name: req.body.name,
+        author: req.body.author,
+        isPublished: true
+    }, {new: true})
+    res.status(200).json(course)
+};
+
+//________________________________________________
+
+//@desc DELETE Courses
+//@route DELETE /api/courses/:id
+const deleteCourse = async (req, res) => {
+    const course = await Course.findByIdAndDelete(req.params.id);
+    res.status(200).json(course)
+};
+
+
 module.exports = {
     createCourse,
+    getCourses,
+    updateCourse,
+    deleteCourse,
     //toliau vardinate get, update, 
     //delete metodus-funkcijas, kurias cia busite aprase
 }
